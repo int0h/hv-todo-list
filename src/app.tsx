@@ -185,6 +185,8 @@ interface FooterProps {
 }
 
 class Footer extends Component<FooterProps> {
+    todosWord = this.hs.auto(() => this.props.activeTodoCount.$ === 1 ? 'todo' : 'todos');
+
     getClass = (type: 'all' | 'active' | 'complited') => {
         return this.hs.auto(() => this.props.selectedFilter.$ === type ? 'selected' : '')
     }
@@ -199,7 +201,7 @@ class Footer extends Component<FooterProps> {
     render() {
         return [
             // <span id="todo-count"><strong>{this.props.activeTodoCount}}</strong> {this.props.activeTodoWord} left</span>
-            <span id="todo-count"><strong>{this.props.activeTodoCount}</strong> todos left</span>
+            <span id="todo-count"><strong>{this.props.activeTodoCount}</strong> {this.todosWord} left</span>
             ,
             <ul id="filters">
                 <li>
