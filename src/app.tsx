@@ -200,7 +200,6 @@ class Footer extends Component<FooterProps> {
 
     render() {
         return [
-            // <span id="todo-count"><strong>{this.props.activeTodoCount}}</strong> {this.props.activeTodoWord} left</span>
             <span id="todo-count"><strong>{this.props.activeTodoCount}</strong> {this.todosWord} left</span>
             ,
             <ul id="filters">
