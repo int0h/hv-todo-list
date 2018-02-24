@@ -14,6 +14,11 @@ interface TodoItem {
     editing: HyperValue<boolean>;
 }
 
+interface PlainTodoItem {
+    text: string;
+    completed: boolean;
+}
+
 class App extends Component<RouteComponentProps> {
     items: HyperValue<Array<TodoItem>> = new HyperValue([]);
     newTodo = new HyperValue(this.createTodo());
@@ -26,6 +31,35 @@ class App extends Component<RouteComponentProps> {
             case 'complited': return item.completed.$;
         }
     });
+
+    init() {
+        this.loadData();
+        this.hs.auto(() => this.saveData());
+    }
+
+    saveData() {
+        const plain: PlainTodoItem[] = this.items.$.map(item => ({
+            text: item.text.$,
+            completed: item.completed.$
+        }));
+
+        localStorage.setItem('todos', JSON.stringify(plain));
+    }
+
+    loadData() {
+        const stored = localStorage.getItem('todos');
+
+        if (!stored) {
+            return;
+        }
+
+        const plain = JSON.parse(stored) as PlainTodoItem[];
+        this.items.$ = plain.map(item => ({
+            text: new HyperValue(item.text),
+            completed: new HyperValue(item.completed),
+            editing: new HyperValue(false)
+        }));
+    }
 
     createTodo(): TodoItem {
         return {
