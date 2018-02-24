@@ -56,6 +56,15 @@ class App extends Component<{}> {
         this.pushTodo();
     }
 
+    checkAll = (e: Event) => {
+        const cb = e.target as HTMLInputElement;
+        this.items.$.forEach(item => item.completed.$ = cb.checked);
+    }
+
+    removeAllComplited = () => {
+        this.items.$ = this.items.$.filter(item => !item.completed.$);
+    }
+
     render() {
         return [
             <section id="todoapp">
@@ -64,13 +73,13 @@ class App extends Component<{}> {
                     <input
                         id="new-todo"
                         placeholder="What needs to be done?"
-                        autofocus
+                        autoFocus
                         value={this.hs.auto(() => this.newTodo.$.text.$)}
                         onKeyUp={this.handleKeyUp}
                     />
                 </header>
                 <section id="main" style={{display: this.display}}>
-                    <input id="toggle-all" type="checkbox" />
+                    <input id="toggle-all" type="checkbox" onChange={this.checkAll}/>
                     <label for="toggle-all">Mark all as complete</label>
                     <ul id="todo-list">
                         {
@@ -89,6 +98,7 @@ class App extends Component<{}> {
                         selectedFilter={this.selectedFilter}
                         activeTodoCount={this.hs.length(this.hs.filter(this.items, item => !item.completed.$))}
                         completedTodos={this.hs.some(this.items, item => item.completed.$)}
+                        onClearComplited={this.removeAllComplited}
                     />
                 </footer>
             </section>
@@ -130,6 +140,7 @@ interface FooterProps {
     //activeTodoWord: HyperValue<string>;
     selectedFilter: HyperValue<'all' | 'active' | 'complited'>;
     completedTodos: HyperValue<boolean>;
+    onClearComplited: () => void;
 }
 
 class Footer extends Component<FooterProps> {
@@ -167,7 +178,10 @@ class Footer extends Component<FooterProps> {
                 </li>
             </ul>
             ,
-            this.hs.auto(() => this.props.completedTodos.$ && <button id="clear-completed">Clear completed</button>)
+            this.hs.auto(() => {
+                return this.props.completedTodos.$ &&
+                    <button id="clear-completed" onClick={() => this.props.onClearComplited()}>Clear completed</button>;
+            })
         ];
     }
 }

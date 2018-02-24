@@ -1688,6 +1688,13 @@ var App = /** @class */ (function (_super) {
             }
             _this.pushTodo();
         };
+        _this.checkAll = function (e) {
+            var cb = e.target;
+            _this.items.$.forEach(function (item) { return item.completed.$ = cb.checked; });
+        };
+        _this.removeAllComplited = function () {
+            _this.items.$ = _this.items.$.filter(function (item) { return !item.completed.$; });
+        };
         return _this;
     }
     App.prototype.createTodo = function () {
@@ -1710,15 +1717,15 @@ var App = /** @class */ (function (_super) {
             hv_jsx_1.jsx("section", { id: "todoapp" },
                 hv_jsx_1.jsx("header", { id: "header" },
                     hv_jsx_1.jsx("h1", null, "todos"),
-                    hv_jsx_1.jsx("input", { id: "new-todo", placeholder: "What needs to be done?", autofocus: true, value: this.hs.auto(function () { return _this.newTodo.$.text.$; }), onKeyUp: this.handleKeyUp })),
+                    hv_jsx_1.jsx("input", { id: "new-todo", placeholder: "What needs to be done?", autoFocus: true, value: this.hs.auto(function () { return _this.newTodo.$.text.$; }), onKeyUp: this.handleKeyUp })),
                 hv_jsx_1.jsx("section", { id: "main", style: { display: this.display } },
-                    hv_jsx_1.jsx("input", { id: "toggle-all", type: "checkbox" }),
+                    hv_jsx_1.jsx("input", { id: "toggle-all", type: "checkbox", onChange: this.checkAll }),
                     hv_jsx_1.jsx("label", { for: "toggle-all" }, "Mark all as complete"),
                     hv_jsx_1.jsx("ul", { id: "todo-list" }, this.hs.map(this.showedItems, function (item, index) {
                         return hv_jsx_1.jsx(TodoItemView, { completed: item.completed, title: item.text, onRemove: function () { return _this.removeTodo(index); } });
                     }))),
                 hv_jsx_1.jsx("footer", { id: "footer", style: { display: this.display } },
-                    hv_jsx_1.jsx(Footer, { selectedFilter: this.selectedFilter, activeTodoCount: this.hs.length(this.hs.filter(this.items, function (item) { return !item.completed.$; })), completedTodos: this.hs.some(this.items, function (item) { return item.completed.$; }) }))),
+                    hv_jsx_1.jsx(Footer, { selectedFilter: this.selectedFilter, activeTodoCount: this.hs.length(this.hs.filter(this.items, function (item) { return !item.completed.$; })), completedTodos: this.hs.some(this.items, function (item) { return item.completed.$; }), onClearComplited: this.removeAllComplited }))),
             hv_jsx_1.jsx("footer", { id: "info" },
                 hv_jsx_1.jsx("p", null, "Double-click to edit a todo"),
                 hv_jsx_1.jsx("p", null,
@@ -1780,7 +1787,10 @@ var Footer = /** @class */ (function (_super) {
                     hv_jsx_1.jsx("a", { class: this.getClass('active'), onClick: this.getOnClick('active') }, "Active")),
                 hv_jsx_1.jsx("li", null,
                     hv_jsx_1.jsx("a", { class: this.getClass('complited'), onClick: this.getOnClick('complited') }, "Complited"))),
-            this.hs.auto(function () { return _this.props.completedTodos.$ && hv_jsx_1.jsx("button", { id: "clear-completed" }, "Clear completed"); })
+            this.hs.auto(function () {
+                return _this.props.completedTodos.$ &&
+                    hv_jsx_1.jsx("button", { id: "clear-completed", onClick: function () { return _this.props.onClearComplited(); } }, "Clear completed");
+            })
         ];
     };
     return Footer;
