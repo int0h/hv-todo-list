@@ -1,6 +1,7 @@
 import {HyperValue} from 'hv';
 import {jsx, Component, HvNode} from 'hv-jsx';
 import {renderIn} from 'hv-dom';
+import {Router, route, RouteComponentProps} from 'hv-router';
 
 const keyCodes = {
     enter: 13,
@@ -13,11 +14,11 @@ interface TodoItem {
     editing: HyperValue<boolean>;
 }
 
-class App extends Component<{}> {
+class App extends Component<RouteComponentProps> {
     items: HyperValue<Array<TodoItem>> = new HyperValue([]);
     newTodo = new HyperValue(this.createTodo());
     display = this.hs.auto(() => this.items.$.length > 0 ? 'block' : 'none');
-    selectedFilter = new HyperValue('all' as ('all' | 'active' | 'complited'));
+    selectedFilter = this.hs.prop(this.props.routeData, 'filter') as HyperValue<'all' | 'active' | 'complited'>;
     showedItems = this.hs.filter(this.items, item => {
         switch (this.selectedFilter.$) {
             case 'all': return true;
@@ -228,4 +229,23 @@ class Footer extends Component<FooterProps> {
     }
 }
 
-renderIn(document.body, {}, <App />);
+const router = new Router({
+    main: route([{$: 'filter'}], {
+        component: App,
+        params: {
+            filter: {}
+        }
+    })
+});
+
+router.init('main', {filter: 'all'});
+
+class Wrapper extends Component<{}> {
+    render() {
+        return <div>
+            {router.content}
+        </div>;
+    }
+}
+
+renderIn(document.body, {}, <Wrapper />);
