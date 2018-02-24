@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "lib": [
+            "es5",
+            "es2015.promise",
+            "dom"
+        ],
+        "noUnusedLocals": true,
+        "jsxFactory": "jsx",
+        "jsx": "react"
+    },
+    "include": [
+        "./src/app.tsx"
+    ]
+}

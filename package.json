@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "awesome-typescript-loader": "^3.5.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.7.2"
+  }
+}
