@@ -19,11 +19,13 @@ interface PlainTodoItem {
     completed: boolean;
 }
 
+type FilterTypes = 'all' | 'active' | 'complited';
+
 class App extends Component<RouteComponentProps> {
     items: HyperValue<Array<TodoItem>> = new HyperValue([]);
     newTodo = new HyperValue(this.createTodo());
     display = this.hs.auto(() => this.items.$.length > 0 ? 'block' : 'none');
-    selectedFilter = this.hs.prop(this.props.routeData, 'filter') as HyperValue<'all' | 'active' | 'complited'>;
+    selectedFilter = this.hs.prop(this.props.routeData, 'filter') as HyperValue<FilterTypes>;
     showedItems = this.hs.filter(this.items, item => {
         switch (this.selectedFilter.$) {
             case 'all': return true;
@@ -140,7 +142,7 @@ class App extends Component<RouteComponentProps> {
             ,
             <footer id="info">
                 <p>Double-click to edit a todo</p>
-                <p>Created by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
+                <p>Created by <a href="https://github.com/int0h">int0h</a></p>
                 <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
             </footer>
         ];
@@ -213,8 +215,7 @@ class TodoItemView extends Component<TodoItemProps> {
 
 interface FooterProps {
     activeTodoCount: HyperValue<number>;
-    //activeTodoWord: HyperValue<string>;
-    selectedFilter: HyperValue<'all' | 'active' | 'complited'>;
+    selectedFilter: HyperValue<FilterTypes>;
     completedTodos: HyperValue<boolean>;
     onClearComplited: () => void;
 }
@@ -222,11 +223,11 @@ interface FooterProps {
 class Footer extends Component<FooterProps> {
     todosWord = this.hs.auto(() => this.props.activeTodoCount.$ === 1 ? 'todo' : 'todos');
 
-    getClass = (type: 'all' | 'active' | 'complited') => {
+    getClass = (type: FilterTypes) => {
         return this.hs.auto(() => this.props.selectedFilter.$ === type ? 'selected' : '')
     }
 
-    getOnClick = (type: 'all' | 'active' | 'complited') => {
+    getOnClick = (type: FilterTypes) => {
         return (e: Event) => {
             e.preventDefault();
             this.props.selectedFilter.$ = type;
@@ -264,6 +265,12 @@ class Footer extends Component<FooterProps> {
 }
 
 const router = new Router({
+    hashPrefix: true,
+    noRouteRedirect: {
+        routeName: 'main',
+        data: {filter: 'all'}
+    }
+}, {
     main: route([{$: 'filter'}], {
         component: App,
         params: {
@@ -272,7 +279,7 @@ const router = new Router({
     })
 });
 
-router.init('main', {filter: 'all'});
+router.init();
 
 class Wrapper extends Component<{}> {
     render() {
