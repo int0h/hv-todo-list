@@ -1,4 +1,4 @@
-import {HyperValue} from 'hv';
+import {HyperValue} from 'hyper-value';
 import {jsx, Component, HvNode} from 'hv-jsx';
 import {renderIn} from 'hv-dom';
 import {Router, route, RouteComponentProps} from 'hv-router';
@@ -25,7 +25,7 @@ class App extends Component<RouteComponentProps> {
     items: HyperValue<Array<TodoItem>> = new HyperValue([]);
     newTodo = new HyperValue(this.createTodo());
     display = this.hs.auto(() => this.items.$.length > 0 ? 'block' : 'none');
-    selectedFilter = this.hs.prop(this.props.routeData, 'filter') as HyperValue<FilterTypes>;
+    selectedFilter = this.hs.prop<any, string>(this.props.routeData, 'filter') as HyperValue<FilterTypes>;
     showedItems = this.hs.filter(this.items, item => {
         switch (this.selectedFilter.$) {
             case 'all': return true;
