@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,16 +70,38 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var abstract_1 = __webpack_require__(2);
+exports.AbstractElement = abstract_1.AbstractElement;
+var component_1 = __webpack_require__(13);
+exports.Component = component_1.Component;
+exports.closestComponent = component_1.closestComponent;
+var jsx_1 = __webpack_require__(39);
+exports.jsx = jsx_1.jsx;
+var common_1 = __webpack_require__(7);
+exports.targetRenderChildren = common_1.targetRenderChildren;
+var element_1 = __webpack_require__(24);
+exports.registerGlobalProp = element_1.registerGlobalProp;
+var debug_1 = __webpack_require__(11);
+exports.debugTargetProxy = debug_1.debugTargetProxy;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(8);
 exports.HyperValue = core_1.HyperValue;
-var scopes = __webpack_require__(34);
+var scopes = __webpack_require__(35);
 exports.scopes = scopes;
 var debug_1 = __webpack_require__(5);
 exports.tracer = debug_1.tracer;
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95,7 +117,7 @@ exports.AbstractElement = AbstractElement;
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107,7 +129,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var dispatcher_1 = __webpack_require__(15);
+var dispatcher_1 = __webpack_require__(16);
 var debug_1 = __webpack_require__(5);
 var BaseScope = /** @class */ (function () {
     function BaseScope() {
@@ -172,28 +194,6 @@ var BaseScope = /** @class */ (function () {
     return BaseScope;
 }());
 exports.BaseScope = BaseScope;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_1 = __webpack_require__(1);
-exports.AbstractElement = abstract_1.AbstractElement;
-var component_1 = __webpack_require__(21);
-exports.Component = component_1.Component;
-exports.closestComponent = component_1.closestComponent;
-var jsx_1 = __webpack_require__(38);
-exports.jsx = jsx_1.jsx;
-var common_1 = __webpack_require__(7);
-exports.targetRenderChildren = common_1.targetRenderChildren;
-var element_1 = __webpack_require__(24);
-exports.registerGlobalProp = element_1.registerGlobalProp;
-var debug_1 = __webpack_require__(11);
-exports.debugTargetProxy = debug_1.debugTargetProxy;
 
 
 /***/ }),
@@ -284,9 +284,9 @@ function outputWarns() {
     }
     toBeReported = [];
 }
-var scope_1 = __webpack_require__(27);
+var scope_1 = __webpack_require__(28);
 exports.scopeDebug = scope_1.scopeDebug;
-var hv_1 = __webpack_require__(28);
+var hv_1 = __webpack_require__(29);
 exports.hvDebug = hv_1.hvDebug;
 exports.traceHv = hv_1.traceHv;
 exports.tracer = hv_1.tracer;
@@ -310,7 +310,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(8);
-var base_1 = __webpack_require__(2);
+var base_1 = __webpack_require__(3);
 var AutoScope = /** @class */ (function (_super) {
     __extends(AutoScope, _super);
     function AutoScope() {
@@ -370,12 +370,12 @@ exports.AutoScope = AutoScope;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
-var abstract_1 = __webpack_require__(1);
+var hyper_value_1 = __webpack_require__(1);
+var abstract_1 = __webpack_require__(2);
 var utils_1 = __webpack_require__(12);
-var string_1 = __webpack_require__(36);
+var string_1 = __webpack_require__(37);
 var zone_1 = __webpack_require__(22);
-var placeholder_1 = __webpack_require__(37);
+var placeholder_1 = __webpack_require__(38);
 function normalizeNodeSet(hs, children) {
     if (typeof children === 'string') {
         return [new string_1.StringElm(children)];
@@ -418,9 +418,9 @@ exports.targetRenderChildren = targetRenderChildren;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(13);
+var core_1 = __webpack_require__(14);
 exports.HyperValue = core_1.HyperValue;
-var record_1 = __webpack_require__(14);
+var record_1 = __webpack_require__(15);
 exports.record = record_1.record;
 exports.recordAsync = record_1.recordAsync;
 
@@ -442,8 +442,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(13);
-var base_1 = __webpack_require__(2);
+var core_1 = __webpack_require__(14);
+var base_1 = __webpack_require__(3);
 var CastScope = /** @class */ (function (_super) {
     __extends(CastScope, _super);
     function CastScope() {
@@ -506,7 +506,7 @@ exports.ProxyScope = ProxyScope;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
+var hyper_value_1 = __webpack_require__(1);
 if (typeof global.performance === 'undefined') {
     global.performance = {
         now: function () { return Date.now(); }
@@ -605,7 +605,7 @@ function createReport(data) {
 }
 // export function trackComponent
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
 /* 12 */
@@ -634,6 +634,24 @@ exports.flatArray = flatArray;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -641,8 +659,117 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var record_1 = __webpack_require__(14);
-var dispatcher_1 = __webpack_require__(15);
+var hyper_value_1 = __webpack_require__(1);
+var debug_1 = __webpack_require__(11);
+var abstract_1 = __webpack_require__(2);
+var common_1 = __webpack_require__(7);
+var zone_1 = __webpack_require__(22);
+var hash_1 = __webpack_require__(4);
+exports.componentTable = [];
+function injectId(id) {
+    return function (attrs) {
+        if (!('id' in attrs)) {
+            return attrs;
+        }
+        var newAttrs = __assign({}, attrs, { 'data-hv-id': id + ':' + attrs.id });
+        // todo consider me
+        // delete newAttrs.id;
+        return newAttrs;
+    };
+}
+var Component = /** @class */ (function (_super) {
+    __extends(Component, _super);
+    // domEe: DomEventEmitter;
+    function Component(props, children) {
+        var _this = _super.call(this) || this;
+        _this.renderHs = new hyper_value_1.scopes.FullScope();
+        _this.hs = new hyper_value_1.scopes.FullScope();
+        _this.children = common_1.normalizeNodeSet(_this.hs, children);
+        _this.props = props;
+        _this.id = exports.componentTable.length;
+        exports.componentTable.push(_this);
+        _this.hash = hash_1.hashBlock({
+            type: 'component',
+            props: hash_1.hashDict(props),
+            children: _this.children.map(function (child) { return child.hash; })
+        });
+        return _this;
+        // this.domEe = new DomEventEmitter();
+    }
+    Component.prototype.init = function () { };
+    Component.prototype.free = function () {
+        this.hs.free();
+        this.children.forEach(function (child) { return child.free(); });
+    };
+    Component.prototype.mockHs = function (fn) {
+        this.renderHs.free();
+        this.renderHs = new hyper_value_1.scopes.FullScope();
+        var hsBackup = this.hs;
+        this.hs = this.renderHs;
+        var result = fn();
+        this.hs = hsBackup;
+        return result;
+    };
+    Component.prototype.targetRender = function (meta) {
+        var _this = this;
+        this.init();
+        var t = meta.target;
+        var domHv = this.hs.auto(function () {
+            return _this.mockHs(function () { return _this.render(); });
+        });
+        var domZone = new zone_1.HyperZone(domHv);
+        this.targetNodes = domZone.targetRender(__assign({}, meta, { mapAttrs: injectId(this.id) }));
+        for (var _i = 0, _a = this.targetNodes; _i < _a.length; _i++) {
+            var elem = _a[_i];
+            t.setData(meta.targetMeta, elem, {
+                compId: this.id
+            });
+        }
+        return this.targetNodes;
+    };
+    Component.prototype.merge = function (meta, newComp) {
+        return newComp;
+    };
+    Component.hvComponent = true;
+    __decorate([
+        debug_1.renderDebug
+    ], Component.prototype, "targetRender", null);
+    return Component;
+}(abstract_1.AbstractElement));
+exports.Component = Component;
+function isComponentClass(fn) {
+    return fn.hvComponent === true;
+}
+exports.isComponentClass = isComponentClass;
+function closestComponent(targetMeta, target, node) {
+    var found = target.closest(targetMeta, node, function (node) {
+        var data = target.getData(targetMeta, node);
+        return data.compId !== undefined;
+    });
+    if (!found) {
+        return null;
+    }
+    var id = target.getData(targetMeta, found).compId;
+    return exports.componentTable[Number(id)];
+}
+exports.closestComponent = closestComponent;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var record_1 = __webpack_require__(15);
+var dispatcher_1 = __webpack_require__(16);
 var debug_1 = __webpack_require__(5);
 var currentId = 0;
 //@hvDebug
@@ -693,7 +820,7 @@ exports.HyperValue = HyperValue;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -758,13 +885,13 @@ exports.recordAsync = recordAsync;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var list_1 = __webpack_require__(26);
+var list_1 = __webpack_require__(27);
 var HvDispatcher = /** @class */ (function () {
     function HvDispatcher() {
         this.watcherSets = {};
@@ -836,7 +963,7 @@ exports.globalDispatcher = new HvDispatcher();
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 var g;
@@ -863,7 +990,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -881,7 +1008,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var auto_1 = __webpack_require__(6);
 var cast_1 = __webpack_require__(9);
-var mixin_1 = __webpack_require__(18);
+var mixin_1 = __webpack_require__(19);
 exports.Base = mixin_1.mixSome(auto_1.AutoScope, cast_1.CastScope);
 var ArrayScope = /** @class */ (function (_super) {
     __extends(ArrayScope, _super);
@@ -990,7 +1117,7 @@ exports.ArrayScope = ArrayScope;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1025,7 +1152,6 @@ function getPrototypeChain(baseProto) {
     return res;
 }
 function mix(baseClass, mixClass) {
-    console.log('mix called');
     var NewClass = /** @class */ (function (_super) {
         __extends(NewClass, _super);
         function NewClass() {
@@ -1059,7 +1185,7 @@ exports.mixSome = mixSome;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1076,7 +1202,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(8);
-var base_1 = __webpack_require__(2);
+var base_1 = __webpack_require__(3);
 var HvAsync = /** @class */ (function (_super) {
     __extends(HvAsync, _super);
     function HvAsync(hs, params) {
@@ -1197,7 +1323,7 @@ exports.AsyncScope = AsyncScope;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1247,133 +1373,6 @@ exports.ObjectScope = ObjectScope;
 
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
-var debug_1 = __webpack_require__(11);
-var abstract_1 = __webpack_require__(1);
-var common_1 = __webpack_require__(7);
-var zone_1 = __webpack_require__(22);
-var hash_1 = __webpack_require__(4);
-exports.componentTable = [];
-function injectId(id) {
-    return function (attrs) {
-        if (!('id' in attrs)) {
-            return attrs;
-        }
-        var newAttrs = __assign({}, attrs, { 'data-hv-id': id + ':' + attrs.id });
-        // todo consider me
-        // delete newAttrs.id;
-        return newAttrs;
-    };
-}
-var Component = /** @class */ (function (_super) {
-    __extends(Component, _super);
-    // domEe: DomEventEmitter;
-    function Component(props, children) {
-        var _this = _super.call(this) || this;
-        _this.renderHs = new hyper_value_1.scopes.FullScope();
-        _this.hs = new hyper_value_1.scopes.FullScope();
-        _this.children = common_1.normalizeNodeSet(_this.hs, children);
-        _this.props = props;
-        _this.id = exports.componentTable.length;
-        exports.componentTable.push(_this);
-        _this.hash = hash_1.hashBlock({
-            type: 'component',
-            props: hash_1.hashDict(props),
-            children: _this.children.map(function (child) { return child.hash; })
-        });
-        return _this;
-        // this.domEe = new DomEventEmitter();
-    }
-    Component.prototype.init = function () { };
-    Component.prototype.free = function () {
-        this.hs.free();
-        this.children.forEach(function (child) { return child.free(); });
-    };
-    Component.prototype.mockHs = function (fn) {
-        this.renderHs.free();
-        this.renderHs = new hyper_value_1.scopes.FullScope();
-        var hsBackup = this.hs;
-        this.hs = this.renderHs;
-        var result = fn();
-        this.hs = hsBackup;
-        return result;
-    };
-    Component.prototype.targetRender = function (meta) {
-        var _this = this;
-        this.init();
-        var t = meta.target;
-        var domHv = this.hs.auto(function () {
-            return _this.mockHs(function () { return _this.render(); });
-        });
-        var domZone = new zone_1.HyperZone(domHv);
-        this.targetNodes = domZone.targetRender(__assign({}, meta, { mapAttrs: injectId(this.id) }));
-        for (var _i = 0, _a = this.targetNodes; _i < _a.length; _i++) {
-            var elem = _a[_i];
-            t.setData(meta.targetMeta, elem, {
-                compId: this.id
-            });
-        }
-        return this.targetNodes;
-    };
-    Component.prototype.merge = function (meta, newComp) {
-        return newComp;
-    };
-    Component.hvComponent = true;
-    __decorate([
-        debug_1.renderDebug
-    ], Component.prototype, "targetRender", null);
-    return Component;
-}(abstract_1.AbstractElement));
-exports.Component = Component;
-function isComponentClass(fn) {
-    return fn.hvComponent === true;
-}
-exports.isComponentClass = isComponentClass;
-function closestComponent(targetMeta, target, node) {
-    var found = target.closest(targetMeta, node, function (node) {
-        var data = target.getData(targetMeta, node);
-        return data.compId !== undefined;
-    });
-    if (!found) {
-        return null;
-    }
-    var id = target.getData(targetMeta, found).compId;
-    return exports.componentTable[Number(id)];
-}
-exports.closestComponent = closestComponent;
-
-
-/***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1396,9 +1395,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
+var hyper_value_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(7);
-var abstract_1 = __webpack_require__(1);
+var abstract_1 = __webpack_require__(2);
 var utils_1 = __webpack_require__(12);
 var debug_1 = __webpack_require__(11);
 var merge_1 = __webpack_require__(23);
@@ -1512,11 +1511,11 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
+var hyper_value_1 = __webpack_require__(1);
 var hash_1 = __webpack_require__(4);
 var merge_1 = __webpack_require__(23);
 var common_1 = __webpack_require__(7);
-var abstract_1 = __webpack_require__(1);
+var abstract_1 = __webpack_require__(2);
 var refProps = {};
 var HyperElm = /** @class */ (function (_super) {
     __extends(HyperElm, _super);
@@ -1647,6 +1646,19 @@ registerGlobalProp('ref', function (_a) {
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.keyCodes = {
+    enter: 13,
+    escape: 27
+};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1658,202 +1670,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
-var hv_jsx_1 = __webpack_require__(3);
-var hv_dom_1 = __webpack_require__(39);
-var hv_router_1 = __webpack_require__(43);
-var keyCodes = {
-    enter: 13,
-    escape: 27
-};
-var App = /** @class */ (function (_super) {
-    __extends(App, _super);
-    function App() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.items = new hyper_value_1.HyperValue([]);
-        _this.newTodo = new hyper_value_1.HyperValue(_this.createTodo());
-        _this.display = _this.hs.auto(function () { return _this.items.$.length > 0 ? 'block' : 'none'; });
-        _this.selectedFilter = _this.hs.prop(_this.props.routeData, 'filter');
-        _this.showedItems = _this.hs.filter(_this.items, function (item) {
-            switch (_this.selectedFilter.$) {
-                case 'all': return true;
-                case 'active': return !item.completed.$;
-                case 'complited': return item.completed.$;
-            }
-        });
-        _this.handleKeyUp = function (e) {
-            var input = e.target;
-            var text = input.value.trim();
-            _this.newTodo.$.text.$ = text;
-            if (e.which !== keyCodes.enter || !text) {
-                return;
-            }
-            _this.pushTodo();
-        };
-        _this.checkAll = function (e) {
-            var cb = e.target;
-            _this.items.$.forEach(function (item) { return item.completed.$ = cb.checked; });
-        };
-        _this.removeAllComplited = function () {
-            _this.items.$ = _this.items.$.filter(function (item) { return !item.completed.$; });
-        };
-        return _this;
-    }
-    App.prototype.init = function () {
-        var _this = this;
-        this.loadData();
-        this.hs.auto(function () { return _this.saveData(); });
-    };
-    App.prototype.saveData = function () {
-        var plain = this.items.$.map(function (item) { return ({
-            text: item.text.$,
-            completed: item.completed.$
-        }); });
-        localStorage.setItem('todos', JSON.stringify(plain));
-    };
-    App.prototype.loadData = function () {
-        var stored = localStorage.getItem('todos');
-        if (!stored) {
-            return;
-        }
-        var plain = JSON.parse(stored);
-        this.items.$ = plain.map(function (item) { return ({
-            text: new hyper_value_1.HyperValue(item.text),
-            completed: new hyper_value_1.HyperValue(item.completed),
-            editing: new hyper_value_1.HyperValue(false)
-        }); });
-    };
-    App.prototype.createTodo = function () {
-        return {
-            text: new hyper_value_1.HyperValue(''),
-            completed: new hyper_value_1.HyperValue(false),
-            editing: new hyper_value_1.HyperValue(false)
-        };
-    };
-    App.prototype.pushTodo = function () {
-        this.hs.insert(this.items, Infinity, this.newTodo.$);
-        this.newTodo.$ = this.createTodo();
-    };
-    App.prototype.removeTodo = function (id) {
-        this.hs.remove(this.items, id, 1);
-    };
-    App.prototype.render = function () {
-        var _this = this;
-        return [
-            hv_jsx_1.jsx("section", { id: "todoapp" },
-                hv_jsx_1.jsx("header", { id: "header" },
-                    hv_jsx_1.jsx("h1", null, "todos"),
-                    hv_jsx_1.jsx("input", { id: "new-todo", placeholder: "What needs to be done?", autoFocus: true, value: this.hs.auto(function () { return _this.newTodo.$.text.$; }), onKeyUp: this.handleKeyUp })),
-                hv_jsx_1.jsx("section", { id: "main", style: { display: this.display } },
-                    hv_jsx_1.jsx("input", { id: "toggle-all", type: "checkbox", onChange: this.checkAll }),
-                    hv_jsx_1.jsx("label", { for: "toggle-all" }, "Mark all as complete"),
-                    hv_jsx_1.jsx("ul", { id: "todo-list" }, this.hs.map(this.showedItems, function (item, index) {
-                        return hv_jsx_1.jsx(TodoItemView, { completed: item.completed, title: item.text, onRemove: function () { return _this.removeTodo(index); } });
-                    }))),
-                hv_jsx_1.jsx("footer", { id: "footer", style: { display: this.display } },
-                    hv_jsx_1.jsx(Footer, { selectedFilter: this.selectedFilter, activeTodoCount: this.hs.length(this.hs.filter(this.items, function (item) { return !item.completed.$; })), completedTodos: this.hs.some(this.items, function (item) { return item.completed.$; }), onClearComplited: this.removeAllComplited }))),
-            hv_jsx_1.jsx("footer", { id: "info" },
-                hv_jsx_1.jsx("p", null, "Double-click to edit a todo"),
-                hv_jsx_1.jsx("p", null,
-                    "Created by ",
-                    hv_jsx_1.jsx("a", { href: "https://github.com/int0h" }, "int0h")),
-                hv_jsx_1.jsx("p", null,
-                    "Part of ",
-                    hv_jsx_1.jsx("a", { href: "http://todomvc.com" }, "TodoMVC")))
-        ];
-    };
-    return App;
-}(hv_jsx_1.Component));
-var TodoItemView = /** @class */ (function (_super) {
-    __extends(TodoItemView, _super);
-    function TodoItemView() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.editing = new hyper_value_1.HyperValue(false);
-        _this.editText = new hyper_value_1.HyperValue(_this.props.title.$);
-        _this.className = _this.hs.auto(function () {
-            var classes = [];
-            if (_this.props.completed.$) {
-                classes.push('complited');
-            }
-            if (_this.editing.$) {
-                classes.push('editing');
-            }
-            return classes.join(' ');
-        });
-        _this.toggle = function () {
-            _this.props.completed.$ = !_this.props.completed.$;
-        };
-        _this.save = function () {
-            _this.props.title.$ = _this.editText.$;
-            _this.toggleEditMode();
-        };
-        _this.toggleEditMode = function () {
-            _this.editing.$ = !_this.editing.$;
-            _this.editText.$ = _this.props.title.$;
-            _this.editElem.targetNodes[0].focus();
-        };
-        _this.handleKey = function (e) {
-            _this.editText.$ = _this.editElem.targetNodes[0].value;
-            switch (e.which) {
-                case keyCodes.escape:
-                    _this.editText.$ = _this.props.title.$;
-                case keyCodes.enter:
-                    _this.editElem.targetNodes[0].blur();
-                    break;
-            }
-        };
-        return _this;
-    }
-    TodoItemView.prototype.render = function () {
-        var _this = this;
-        return hv_jsx_1.jsx("li", { class: this.className },
-            hv_jsx_1.jsx("div", { class: "view" },
-                hv_jsx_1.jsx("input", { class: "toggle", type: "checkbox", checked: this.hs.auto(function () { return _this.props.completed.$; }), onChange: this.toggle }),
-                hv_jsx_1.jsx("label", { onDblClick: this.toggleEditMode }, this.props.title),
-                hv_jsx_1.jsx("button", { class: "destroy", onClick: function () { return _this.props.onRemove(); } })),
-            hv_jsx_1.jsx("input", { class: "edit", value: this.editText, onBlur: this.save, onKeyUp: this.handleKey, ref: function (elem) { return _this.editElem = elem; } }));
-    };
-    return TodoItemView;
-}(hv_jsx_1.Component));
-var Footer = /** @class */ (function (_super) {
-    __extends(Footer, _super);
-    function Footer() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.todosWord = _this.hs.auto(function () { return _this.props.activeTodoCount.$ === 1 ? 'todo' : 'todos'; });
-        _this.getClass = function (type) {
-            return _this.hs.auto(function () { return _this.props.selectedFilter.$ === type ? 'selected' : ''; });
-        };
-        _this.getOnClick = function (type) {
-            return function (e) {
-                e.preventDefault();
-                _this.props.selectedFilter.$ = type;
-            };
-        };
-        return _this;
-    }
-    Footer.prototype.render = function () {
-        var _this = this;
-        return [
-            hv_jsx_1.jsx("span", { id: "todo-count" },
-                hv_jsx_1.jsx("strong", null, this.props.activeTodoCount),
-                " ",
-                this.todosWord,
-                " left"),
-            hv_jsx_1.jsx("ul", { id: "filters" },
-                hv_jsx_1.jsx("li", null,
-                    hv_jsx_1.jsx("a", { class: this.getClass('all'), onClick: this.getOnClick('all') }, "All")),
-                hv_jsx_1.jsx("li", null,
-                    hv_jsx_1.jsx("a", { class: this.getClass('active'), onClick: this.getOnClick('active') }, "Active")),
-                hv_jsx_1.jsx("li", null,
-                    hv_jsx_1.jsx("a", { class: this.getClass('complited'), onClick: this.getOnClick('complited') }, "Complited"))),
-            this.hs.auto(function () {
-                return _this.props.completedTodos.$ &&
-                    hv_jsx_1.jsx("button", { id: "clear-completed", onClick: function () { return _this.props.onClearComplited(); } }, "Clear completed");
-            })
-        ];
-    };
-    return Footer;
-}(hv_jsx_1.Component));
+var hv_jsx_1 = __webpack_require__(0);
+var hv_dom_1 = __webpack_require__(40);
+var hv_router_1 = __webpack_require__(44);
+var main_1 = __webpack_require__(49);
 var router = new hv_router_1.Router({
     hashPrefix: true,
     noRouteRedirect: {
@@ -1862,7 +1682,7 @@ var router = new hv_router_1.Router({
     }
 }, {
     main: hv_router_1.route([{ $: 'filter' }], {
-        component: App,
+        component: main_1.App,
         params: {
             filter: {}
         }
@@ -1883,7 +1703,7 @@ hv_dom_1.renderIn(document.body, {}, hv_jsx_1.jsx(Wrapper, null));
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1922,7 +1742,7 @@ exports.List = List;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1974,7 +1794,7 @@ exports.scopeDebug = scopeDebug;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1990,7 +1810,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var debug_tools_1 = __webpack_require__(29);
+var debug_tools_1 = __webpack_require__(30);
 var currentDepth = 0;
 var history = [];
 function pipeLog(hv, fn) {
@@ -2048,21 +1868,7 @@ glob.getHvHistory = function () {
     }).join('\n');
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var debug_1 = __webpack_require__(30);
-exports.Tracer = debug_1.Tracer;
-var report_1 = __webpack_require__(32);
-exports.createReportIframe = report_1.createReportIframe;
-exports.genReport = report_1.genReport;
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
 /* 30 */
@@ -2071,7 +1877,21 @@ exports.genReport = report_1.genReport;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(31);
+var debug_1 = __webpack_require__(31);
+exports.Tracer = debug_1.Tracer;
+var report_1 = __webpack_require__(33);
+exports.createReportIframe = report_1.createReportIframe;
+exports.genReport = report_1.genReport;
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(32);
 var Tracer = /** @class */ (function () {
     function Tracer() {
         var _this = this;
@@ -2149,7 +1969,7 @@ exports.Tracer = Tracer;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2161,13 +1981,13 @@ exports.now = (typeof window === 'undefined' || typeof window.performance === 'u
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var flameChart_1 = __webpack_require__(33);
+var flameChart_1 = __webpack_require__(34);
 function genReport(renderStack) {
     var name = renderStack.name;
     var value = isNaN(renderStack.time)
@@ -2199,7 +2019,7 @@ exports.createReportIframe = createReportIframe;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2209,50 +2029,50 @@ exports.default = "!function(t){function e(r){if(n[r])return n[r].exports;var i=
 
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var base_1 = __webpack_require__(2);
-exports.BaseScope = base_1.BaseScope;
-var auto_1 = __webpack_require__(6);
-exports.AutoScope = auto_1.AutoScope;
-var array_1 = __webpack_require__(17);
-exports.ArrayScope = array_1.ArrayScope;
-var async_1 = __webpack_require__(19);
-exports.AsyncScope = async_1.AsyncScope;
-var cast_1 = __webpack_require__(9);
-exports.CastScope = cast_1.CastScope;
-var full_1 = __webpack_require__(35);
-exports.FullScope = full_1.FullScope;
-var object_1 = __webpack_require__(20);
-exports.ObjectScope = object_1.ObjectScope;
-var proxy_1 = __webpack_require__(10);
-exports.ProxyScope = proxy_1.ProxyScope;
-
-
-/***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var mixin_1 = __webpack_require__(18);
-var base_1 = __webpack_require__(2);
+var base_1 = __webpack_require__(3);
+exports.BaseScope = base_1.BaseScope;
 var auto_1 = __webpack_require__(6);
-var array_1 = __webpack_require__(17);
-var async_1 = __webpack_require__(19);
+exports.AutoScope = auto_1.AutoScope;
+var array_1 = __webpack_require__(18);
+exports.ArrayScope = array_1.ArrayScope;
+var async_1 = __webpack_require__(20);
+exports.AsyncScope = async_1.AsyncScope;
 var cast_1 = __webpack_require__(9);
-var object_1 = __webpack_require__(20);
+exports.CastScope = cast_1.CastScope;
+var full_1 = __webpack_require__(36);
+exports.FullScope = full_1.FullScope;
+var object_1 = __webpack_require__(21);
+exports.ObjectScope = object_1.ObjectScope;
+var proxy_1 = __webpack_require__(10);
+exports.ProxyScope = proxy_1.ProxyScope;
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var mixin_1 = __webpack_require__(19);
+var base_1 = __webpack_require__(3);
+var auto_1 = __webpack_require__(6);
+var array_1 = __webpack_require__(18);
+var async_1 = __webpack_require__(20);
+var cast_1 = __webpack_require__(9);
+var object_1 = __webpack_require__(21);
 var proxy_1 = __webpack_require__(10);
 exports.FullScope = mixin_1.mixSome(base_1.BaseScope, auto_1.AutoScope, array_1.ArrayScope, async_1.AsyncScope, cast_1.CastScope, object_1.ObjectScope, proxy_1.ProxyScope);
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2268,7 +2088,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_1 = __webpack_require__(1);
+var abstract_1 = __webpack_require__(2);
 var hash_1 = __webpack_require__(4);
 var StringElm = /** @class */ (function (_super) {
     __extends(StringElm, _super);
@@ -2295,7 +2115,7 @@ exports.StringElm = StringElm;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2311,7 +2131,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var abstract_1 = __webpack_require__(1);
+var abstract_1 = __webpack_require__(2);
 var hash_1 = __webpack_require__(4);
 var PlaceholderElm = /** @class */ (function (_super) {
     __extends(PlaceholderElm, _super);
@@ -2336,7 +2156,7 @@ exports.PlaceholderElm = PlaceholderElm;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2353,7 +2173,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var element_1 = __webpack_require__(24);
-var component_1 = __webpack_require__(21);
+var component_1 = __webpack_require__(13);
 function jsx(what, props) {
     var children = [];
     for (var _i = 2; _i < arguments.length; _i++) {
@@ -2385,16 +2205,16 @@ exports.jsx = jsx;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var hv_jsx_1 = __webpack_require__(3);
-__webpack_require__(40);
+var hv_jsx_1 = __webpack_require__(0);
 __webpack_require__(41);
-var domHelpers_1 = __webpack_require__(42);
+__webpack_require__(42);
+var domHelpers_1 = __webpack_require__(43);
 exports.dom = {
     append: domHelpers_1.append,
     closest: domHelpers_1.closest,
@@ -2433,13 +2253,13 @@ exports.closestComponent = closestComponent;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var hv_jsx_1 = __webpack_require__(3);
+var hv_jsx_1 = __webpack_require__(0);
 var eventNames = [
     // Clipboard Events
     'onCopy',
@@ -2602,13 +2422,13 @@ eventNames.forEach(function (event) {
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var hv_jsx_1 = __webpack_require__(3);
+var hv_jsx_1 = __webpack_require__(0);
 hv_jsx_1.registerGlobalProp('style', function (_a) {
     var owner = _a.owner, hs = _a.hs, name = _a.name, value = _a.value;
     var elem = owner.targetNode;
@@ -2627,7 +2447,7 @@ hv_jsx_1.registerGlobalProp('style', function (_a) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2797,7 +2617,7 @@ function guessNs(tagName, currentNs) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2813,9 +2633,9 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var hyper_value_1 = __webpack_require__(0);
-var hv_jsx_1 = __webpack_require__(3);
-var router_core_1 = __webpack_require__(44);
+var hyper_value_1 = __webpack_require__(1);
+var hv_jsx_1 = __webpack_require__(0);
+var router_core_1 = __webpack_require__(45);
 function route(pattern, config) {
     var route = router_core_1.route(pattern, config);
     route.meta.component = config.component;
@@ -2866,16 +2686,16 @@ exports.Router = Router;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var route_1 = __webpack_require__(45);
+var route_1 = __webpack_require__(46);
 exports.Route = route_1.Route;
 exports.route = route_1.route;
-var browser_1 = __webpack_require__(47);
+var browser_1 = __webpack_require__(48);
 exports.handleHistory = browser_1.handleHistory;
 var RouterCore = /** @class */ (function () {
     function RouterCore(cfg, routes) {
@@ -2975,13 +2795,13 @@ exports.RouterCore = RouterCore;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(46);
+var utils_1 = __webpack_require__(47);
 function route(pattern, config) {
     if (typeof pattern === 'string') {
         pattern = [utils_1.trimSlashes(pattern)];
@@ -3086,7 +2906,7 @@ exports.Route = Route;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3155,7 +2975,7 @@ exports.stringifyQuery = stringifyQuery;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3188,6 +3008,263 @@ function handleHistory(router) {
     });
 }
 exports.handleHistory = handleHistory;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var hyper_value_1 = __webpack_require__(1);
+var hv_jsx_1 = __webpack_require__(0);
+var common_1 = __webpack_require__(25);
+var item_1 = __webpack_require__(50);
+var footer_1 = __webpack_require__(51);
+var App = /** @class */ (function (_super) {
+    __extends(App, _super);
+    function App() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.items = new hyper_value_1.HyperValue([]);
+        _this.newTodo = new hyper_value_1.HyperValue(_this.createTodo());
+        _this.display = _this.hs.auto(function () { return _this.items.$.length > 0 ? 'block' : 'none'; });
+        _this.selectedFilter = _this.hs.prop(_this.props.routeData, 'filter');
+        _this.showedItems = _this.hs.filter(_this.items, function (item) {
+            switch (_this.selectedFilter.$) {
+                case 'all': return true;
+                case 'active': return !item.completed.$;
+                case 'complited': return item.completed.$;
+            }
+        });
+        _this.handleKeyUp = function (e) {
+            var input = e.target;
+            var text = input.value.trim();
+            _this.newTodo.$.text.$ = text;
+            if (e.which !== common_1.keyCodes.enter || !text) {
+                return;
+            }
+            _this.pushTodo();
+        };
+        _this.checkAll = function (e) {
+            var cb = e.target;
+            _this.items.$.forEach(function (item) { return item.completed.$ = cb.checked; });
+        };
+        _this.removeAllComplited = function () {
+            _this.items.$ = _this.items.$.filter(function (item) { return !item.completed.$; });
+        };
+        return _this;
+    }
+    App.prototype.init = function () {
+        var _this = this;
+        this.loadData();
+        this.hs.auto(function () { return _this.saveData(); });
+    };
+    App.prototype.saveData = function () {
+        var plain = this.items.$.map(function (item) { return ({
+            text: item.text.$,
+            completed: item.completed.$
+        }); });
+        localStorage.setItem('todos', JSON.stringify(plain));
+    };
+    App.prototype.loadData = function () {
+        var stored = localStorage.getItem('todos');
+        if (!stored) {
+            return;
+        }
+        var plain = JSON.parse(stored);
+        this.items.$ = plain.map(function (item) { return ({
+            text: new hyper_value_1.HyperValue(item.text),
+            completed: new hyper_value_1.HyperValue(item.completed),
+            editing: new hyper_value_1.HyperValue(false)
+        }); });
+    };
+    App.prototype.createTodo = function () {
+        return {
+            text: new hyper_value_1.HyperValue(''),
+            completed: new hyper_value_1.HyperValue(false),
+            editing: new hyper_value_1.HyperValue(false)
+        };
+    };
+    App.prototype.pushTodo = function () {
+        this.hs.insert(this.items, Infinity, this.newTodo.$);
+        this.newTodo.$ = this.createTodo();
+    };
+    App.prototype.removeTodo = function (id) {
+        this.hs.remove(this.items, id, 1);
+    };
+    App.prototype.render = function () {
+        var _this = this;
+        return [
+            hv_jsx_1.jsx("section", { id: "todoapp" },
+                hv_jsx_1.jsx("header", { id: "header" },
+                    hv_jsx_1.jsx("h1", null, "todos"),
+                    hv_jsx_1.jsx("input", { id: "new-todo", placeholder: "What needs to be done?", autoFocus: true, value: this.hs.auto(function () { return _this.newTodo.$.text.$; }), onKeyUp: this.handleKeyUp })),
+                hv_jsx_1.jsx("section", { id: "main", style: { display: this.display } },
+                    hv_jsx_1.jsx("input", { id: "toggle-all", type: "checkbox", onChange: this.checkAll }),
+                    hv_jsx_1.jsx("label", { for: "toggle-all" }, "Mark all as complete"),
+                    hv_jsx_1.jsx("ul", { id: "todo-list" }, this.hs.map(this.showedItems, function (item, index) {
+                        return hv_jsx_1.jsx(item_1.TodoItemView, { completed: item.completed, title: item.text, onRemove: function () { return _this.removeTodo(index); } });
+                    }))),
+                hv_jsx_1.jsx("footer", { id: "footer", style: { display: this.display } },
+                    hv_jsx_1.jsx(footer_1.Footer, { selectedFilter: this.selectedFilter, activeTodoCount: this.hs.length(this.hs.filter(this.items, function (item) { return !item.completed.$; })), completedTodos: this.hs.some(this.items, function (item) { return item.completed.$; }), onClearComplited: this.removeAllComplited }))),
+            hv_jsx_1.jsx("footer", { id: "info" },
+                hv_jsx_1.jsx("p", null, "Double-click to edit a todo"),
+                hv_jsx_1.jsx("p", null,
+                    "Created by ",
+                    hv_jsx_1.jsx("a", { href: "https://github.com/int0h" }, "int0h")),
+                hv_jsx_1.jsx("p", null,
+                    "Part of ",
+                    hv_jsx_1.jsx("a", { href: "http://todomvc.com" }, "TodoMVC")))
+        ];
+    };
+    return App;
+}(hv_jsx_1.Component));
+exports.App = App;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var hyper_value_1 = __webpack_require__(1);
+var hv_jsx_1 = __webpack_require__(0);
+var common_1 = __webpack_require__(25);
+var TodoItemView = /** @class */ (function (_super) {
+    __extends(TodoItemView, _super);
+    function TodoItemView() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.editing = new hyper_value_1.HyperValue(false);
+        _this.editText = new hyper_value_1.HyperValue(_this.props.title.$);
+        _this.className = _this.hs.auto(function () {
+            var classes = [];
+            if (_this.props.completed.$) {
+                classes.push('complited');
+            }
+            if (_this.editing.$) {
+                classes.push('editing');
+            }
+            return classes.join(' ');
+        });
+        _this.toggle = function () {
+            _this.props.completed.$ = !_this.props.completed.$;
+        };
+        _this.save = function () {
+            _this.props.title.$ = _this.editText.$;
+            _this.toggleEditMode();
+        };
+        _this.toggleEditMode = function () {
+            _this.editing.$ = !_this.editing.$;
+            _this.editText.$ = _this.props.title.$;
+            _this.editElem.targetNodes[0].focus();
+        };
+        _this.handleKey = function (e) {
+            _this.editText.$ = _this.editElem.targetNodes[0].value;
+            switch (e.which) {
+                case common_1.keyCodes.escape:
+                    _this.editText.$ = _this.props.title.$;
+                case common_1.keyCodes.enter:
+                    _this.editElem.targetNodes[0].blur();
+                    break;
+            }
+        };
+        return _this;
+    }
+    TodoItemView.prototype.render = function () {
+        var _this = this;
+        return hv_jsx_1.jsx("li", { class: this.className },
+            hv_jsx_1.jsx("div", { class: "view" },
+                hv_jsx_1.jsx("input", { class: "toggle", type: "checkbox", checked: this.hs.auto(function () { return _this.props.completed.$; }), onChange: this.toggle }),
+                hv_jsx_1.jsx("label", { onDblClick: this.toggleEditMode }, this.props.title),
+                hv_jsx_1.jsx("button", { class: "destroy", onClick: function () { return _this.props.onRemove(); } })),
+            hv_jsx_1.jsx("input", { class: "edit", value: this.editText, onBlur: this.save, onKeyUp: this.handleKey, ref: function (elem) { return _this.editElem = elem; } }));
+    };
+    return TodoItemView;
+}(hv_jsx_1.Component));
+exports.TodoItemView = TodoItemView;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var hv_jsx_1 = __webpack_require__(0);
+var Footer = /** @class */ (function (_super) {
+    __extends(Footer, _super);
+    function Footer() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.todosWord = _this.hs.auto(function () { return _this.props.activeTodoCount.$ === 1 ? 'todo' : 'todos'; });
+        _this.getClass = function (type) {
+            return _this.hs.auto(function () { return _this.props.selectedFilter.$ === type ? 'selected' : ''; });
+        };
+        _this.getOnClick = function (type) {
+            return function (e) {
+                e.preventDefault();
+                _this.props.selectedFilter.$ = type;
+            };
+        };
+        return _this;
+    }
+    Footer.prototype.render = function () {
+        var _this = this;
+        return [
+            hv_jsx_1.jsx("span", { id: "todo-count" },
+                hv_jsx_1.jsx("strong", null, this.props.activeTodoCount),
+                " ",
+                this.todosWord,
+                " left"),
+            hv_jsx_1.jsx("ul", { id: "filters" },
+                hv_jsx_1.jsx("li", null,
+                    hv_jsx_1.jsx("a", { class: this.getClass('all'), onClick: this.getOnClick('all') }, "All")),
+                hv_jsx_1.jsx("li", null,
+                    hv_jsx_1.jsx("a", { class: this.getClass('active'), onClick: this.getOnClick('active') }, "Active")),
+                hv_jsx_1.jsx("li", null,
+                    hv_jsx_1.jsx("a", { class: this.getClass('complited'), onClick: this.getOnClick('complited') }, "Complited"))),
+            this.hs.auto(function () {
+                return _this.props.completedTodos.$ &&
+                    hv_jsx_1.jsx("button", { id: "clear-completed", onClick: function () { return _this.props.onClearComplited(); } }, "Clear completed");
+            })
+        ];
+    };
+    return Footer;
+}(hv_jsx_1.Component));
+exports.Footer = Footer;
 
 
 /***/ })
